@@ -400,9 +400,6 @@ class Enemy(Entity):
         elif self.rect.right > level.width:
             self.rect.right = level.width
             self.reverse()
-
-        #if self.rect.y > HEIGHT + 64:
-            #ygame.Sprite.kill(self)
             
     def move_and_process_blocks(self):
         pass
@@ -796,14 +793,14 @@ class Game():
             if event.type == pygame.QUIT:
                 self.done = True
 
-            elif event.type == pygame.KEYDOWN:
+            elif event.type == pygame.JOYBUTTONDOWN:
                 if self.stage == Game.SPLASH or self.stage == Game.START:
                     self.stage = Game.PLAYING
                     play_music()
 
-                elif self.stage == Game.PLAYING:
-                    if event.key == JUMP:
-                        self.hero.jump(self.level.blocks, self.level)
+                #elif self.stage == Game.PLAYING:
+                    #if event.key == JUMP:
+                        #self.hero.jump(self.level.blocks, self.level)
 
                 elif self.stage == Game.PAUSED:
                     pass
@@ -812,9 +809,8 @@ class Game():
                     self.advance()
 
                 elif self.stage == Game.VICTORY or self.stage == Game.GAME_OVER:
-                    if event.key == pygame.K_r:
+                    if event.button == xbox360_controller.A:
                         self.reset()
-
         left_x = lt_x
         left_y = lt_y
 
@@ -828,11 +824,7 @@ class Game():
             else:
                 self.hero.stop()
 
-            #self.hero.move(round(left_x), round(left_y))
-            if start:
-                self.stage = Game.PAUSED
-
-            elif a_btn:
+            if a_btn:
                 self.hero.jump(self.level.blocks, self.level)
 
         elif self.stage == Game.SPLASH:
@@ -844,13 +836,6 @@ class Game():
             if True in buttons:
                 self.advance()
 
-        elif self.stage == Game.PAUSED:
-            if start:
-                self.stage == Game.PLAYING
-            elif self.stage == Game.GAME_OVER:
-                if True in buttons:
-                    self.reset()
-                    
     def update(self):
         if self.stage == Game.PLAYING:
             self.hero.update(self.level)
@@ -912,9 +897,9 @@ class Game():
         elif self.stage == Game.LEVEL_COMPLETED:
             self.display_message(self.window, "Level Complete", "Press any key to continue.")
         elif self.stage == Game.VICTORY:
-            self.display_message(self.window, "You Win!", "Press 'R' to restart.")
+            self.display_message(self.window, "You Win!", "Press 'A' to restart.")
         elif self.stage == Game.GAME_OVER:
-            self.display_message(self.window, "Game Over", "Press 'R' to restart.")
+            self.display_message(self.window, "Game Over", "Press 'A' to restart.")
 
         pygame.display.flip()
 
