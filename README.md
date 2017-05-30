@@ -1,4 +1,4 @@
-![Hades-Horse Box Art](resources/Hades_Horse.png)
+![Hades-Horse Box Art](/resourses/Hades_Horse.png)
 # Hades-Horse
 * Goal
   * Help Horse escape the demons in Hades!
