@@ -3,7 +3,7 @@
 * Goal
   * Help Horse escape the demons in Hades!
   
-![Start Screen](/resources/Start_Screen.png)
+![Start Screen](/resourses/Start_Screen.PNG)
 * Controls (Requires XBox Controller to play!)
   * Use Left Stick to Move.
   * Hold B to run.
@@ -13,7 +13,7 @@
   * Medkits restore lives.
   * Reach the flag before time runs out to complete the level.
   
- ![Gameplay](/resources/Gameplay.png)
+ ![Gameplay](/resourses/Gameplay.PNG)
   
 # [Download Now](https://github.com//etb17/Hades-Horse/archive/master.zip)
   * [Repository](https://github.com/etb17/Hades-Horse)
